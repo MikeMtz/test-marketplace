@@ -1,0 +1,17 @@
+/dist
+/tmp
+/out-tsc
+/.angular
+
+/node_modules
+/.idea
+.project
+.classpath
+.vscode/*
+
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+.DS_Store
+Thumbs.db

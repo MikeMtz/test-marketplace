@@ -1,0 +1,12 @@
+<div class="row">
+    <ng-container *ngFor="let product of products">
+        <div class="col-3 mt-2 mb-2" *ngIf="!product.bought">
+            <div class="text-center" [ngClass]="{'pointer': !product.disabled, 'disabled': product.disabled}"
+                (click)="addToBasket(product)">
+                <img class="img-fluid" src="{{product.image}}" alt="{{product.name}}">
+                <h4>{{product.name}}</h4>
+                <h5>{{product.price | currency }}</h5>
+            </div>
+        </div>
+    </ng-container>
+</div>

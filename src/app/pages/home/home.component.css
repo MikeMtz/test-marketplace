@@ -1,0 +1,3 @@
+.disabled > img {
+    opacity: .5!important;
+}

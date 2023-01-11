@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+.disabled {
+    color: #b4b4b4;
+    cursor: not-allowed;
+}
+
+.pointer {
+    cursor: pointer;
+}

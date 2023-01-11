@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-10 mx-auto" *ngIf="!successful">
+        <h3 class="mb-3">Checkout</h3>
+        <form [formGroup]="checkoutForm" (ngSubmit)="onCheckout(checkoutForm)">
+            <div class="row mb-2">
+                <h6 class="col-12">* Name</h6>
+                <div class="col-4 mb-2">
+                    <input class="form-control"
+                           type="text"
+                           name="firstName"
+                           id="firstName"
+                           placeholder="First"
+                           formControlName="firstName"
+                           [ngClass]="{'is-invalid': firstName?.invalid && (firstName?.dirty || firstName?.touched)}">
+                    <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+                        <p class="text-danger">Required information.</p>
+                    </div>
+                </div>
+                <div class="col-4 mb-2">
+                    <input class="form-control"
+                           type="text"
+                           name="lastName"
+                           id="lastName"
+                           placeholder="Last"
+                           formControlName="lastName"
+                           [ngClass]="{'is-invalid': lastName?.invalid && (lastName?.dirty || lastName?.touched)}">
+                    <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+                        <p class="text-danger">Required information.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <h6 class="col-12">* Address</h6>
+                <div class="col-12 mb-2">
+                    <input class="form-control"
+                           type="text"
+                           name="street"
+                           id="street"
+                           placeholder="Street"
+                           formControlName="street"
+                           [ngClass]="{'is-invalid': street?.invalid && (street?.dirty || street?.touched)}">
+                    <div *ngIf="street?.invalid && (street?.dirty || street?.touched)">
+                        <p class="text-danger">Required information.</p>
+                    </div>
+                </div>
+                <div class="col-6 mb-2">
+                    <input class="form-control"
+                           type="text"
+                           name="city"
+                           id="city"
+                           placeholder="City"
+                           formControlName="city"
+                           [ngClass]="{'is-invalid': city?.invalid && (city?.dirty || city?.touched)}">
+                    <div *ngIf="city?.invalid && (city?.dirty || city?.touched)">
+                        <p class="text-danger">Required information.</p>
+                    </div>
+                </div>
+                <div class="col-6 mb-2">
+                    <input class="form-control"
+                           type="text"
+                           name="state"
+                           id="state"
+                           placeholder="State"
+                           formControlName="state"
+                           [ngClass]="{'is-invalid': state?.invalid && (state?.dirty || state?.touched)}">
+                    <div *ngIf="state?.invalid && (state?.dirty || state?.touched)">
+                        <p class="text-danger">Required information.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <h6 class="col-12">* E-mail</h6>
+                <div class="col-6 mb-2">
+                    <input class="form-control"
+                           type="email"
+                           name="email"
+                           id="email"
+                           placeholder="E-mail"
+                           formControlName="email"
+                           [ngClass]="{'is-invalid': email?.invalid && (email?.dirty || email?.touched)}">
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                        <p class="text-danger"
+                           *ngIf="email?.hasError('required')">
+                            Required information.
+                        </p>
+                        <p class="text-danger"
+                           *ngIf="email?.hasError('email')">
+                            Please enter an email address.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="mb-3"><small>(*) Required</small></p>
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-primary btn-lg" [disabled]="checkoutForm.invalid">
+                    Pay
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a class="link-primary" [routerLink]="['/']">Go home...</a>
+        </div>
+    </div>
+    <div class="col-8 mx-auto text-center" *ngIf="successful">
+        <h2 class="alert alert-success" style="margin-top: 30vh;">
+            Thank you for your purchase
+        </h2>
+        <a class="btn btn-dark mt-3" [routerLink]="['/']">Buy more</a>
+    </div>
+</div>
